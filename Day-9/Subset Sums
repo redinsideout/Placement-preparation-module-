@@ -1,0 +1,18 @@
+//User function Template for Java//User function Template for Java
+class Solution{
+    ArrayList<Integer> subsetSums(ArrayList<Integer> arr, int N){
+        // code here
+        ArrayList<Integer> sumSub = new ArrayList<>();
+        func(0,0,arr,N,sumSub);
+        Collections.sort(sumSub);
+        return sumSub;
+    }
+    void func(int ind,int sum,ArrayList<Integer> arr,int N,ArrayList<Integer> sumSub){
+        if(ind == N){
+            sumSub.add(sum);
+            return;
+        }
+        func(ind+1,sum + arr.get(ind),arr,N,sumSub);
+        func(ind+1,sum,arr,N,sumSub);
+    }
+}
